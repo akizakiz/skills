@@ -10,7 +10,7 @@ You don't remember every skill, so ask.
 
 Before stating what a skill does or recommending a step be skipped, read that skill's SKILL.md: the summaries here are for orientation only.
 
-A **flow** is a path through the skills. Most paths run along one **main flow**, and two **on-ramps** merge onto it. Everything else is standalone, or a vocabulary layer that runs underneath.
+A **flow** is a path through the skills. Most paths run along one **main flow**, and two **on-ramps** merge onto it. Everything else is standalone, a vocabulary layer that runs underneath, or **off the flow** entirely: a library you reach into by situation rather than by sequence (see Beyond the flow).
 
 ## The main flow: idea → ship
 
@@ -91,6 +91,17 @@ Off the main flow entirely.
 - **`/wait-what`** is the corrective for a message that didn't land. Use it mid-conversation, inside any other skill, and the agent re-pitches what it just said with the context you were missing, in plain English, using the `GLOSSARY.md` vocabulary. It works after the fact; `/grill-with-docs` is the upfront cure, because a shared language agreed early is what stops the jargon arriving at all.
 - **`/teach`**: learn a concept over multiple sessions, using the current directory as a stateful workspace.
 - **`/writing-for-agents`** is the reference for writing documents agents consume: skills, AGENTS.md, pointed-at docs.
+
+## Beyond the flow
+
+Installed here, but off the idea → ship route and not covered above. There is no order among them: you reach for one because of the **situation** you're in.
+
+- **Orchestrating agents.** **`/subagents`** sends one tightly-scoped job (explore, research, review, verify) to its own context window and brings a report back; that's the general-purpose worker. **`/chief-of-staff`** is the same idea run continuously: pursue a long-running goal inside one session by co-ordinating subagents. **`/claude-handoff`** when the work should carry on in a **fresh background agent** instead of this window.
+- **Writing that isn't code.** A three-stage pipeline: **`/writing-fragments`** mines raw material with no structure yet, **`/writing-beats`** assembles it into a journey of beats, **`/writing-shape`** shapes it into an article. **`/writing-great-skills`** is the reference for writing and editing the skills themselves; **`/writing-for-agents`** (above) is its sibling for any document an agent reads.
+- **Repo hygiene.** One-time setups that outlive the session: **`/setup-pre-commit`** (Husky + lint-staged, type check, tests), **`/setup-ts-deep-modules`** (dependency-cruiser, so each package stays a deep module), **`/git-guardrails-claude-code`** (hooks that stop `push`, `reset --hard`, `clean` before they run), **`/migrate-to-shoehorn`** (replace `as` assertions in tests), **`/scaffold-exercises`** (exercise directories that pass linting), **`/resolving-merge-conflicts`** (work through a live conflict).
+- **Keeping the agent honest.** **`/karpathy-guidelines`**: behavioural guardrails for writing and reviewing code. Don't overcomplicate, make surgical changes, state your assumptions, define success before you start. **`/zoom-out`**: for when you're deep in a section of code and need the wider picture. **`/caveman`**: ultra-compressed replies, roughly 75% fewer tokens, on request.
+- **Media and interface.** **`/agy-media`** produces the asset (image, illustration, icon, sprite, sound) or delegates a frontend task to the Antigravity CLI. **`/frontend-design`** is the taste layer when you're building a new UI or reshaping one, so it doesn't come out looking like a default.
+- **Looking things up.** **`/last30days`** checks what people are actually saying *right now* (Reddit, X, YouTube, Hacker News, GitHub, the web) rather than what the model remembers. **`/find-skills`** for when the answer is "there should be a skill for this". **`/loop-me`** grills you about the specs for workflows you want to build *in this workspace*.
 
 ## Precondition
 
